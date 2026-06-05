@@ -3,6 +3,8 @@ import express from "express";
 const app = express();
 const port = process.env.PORT || 5007;
 
+app.use(express.static("public"));
+
 const APPLE_TEAM_ID = "J468ST473N";
 const BUNDLE_ID = "com.beassos.app";
 const APP_ID = `${APPLE_TEAM_ID}.${BUNDLE_ID}`;
@@ -74,18 +76,13 @@ app.get("/event/:id", (req, res) => {
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
     .logo {
-      width: 72px;
-      height: 72px;
-      background: #22C55E;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      font-weight: 800;
-      color: #0f1f13;
+      display: block;
+      width: 180px;
+      height: auto;
       margin: 0 auto 24px;
-      letter-spacing: -1px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 16px;
     }
     h1 {
       font-size: 22px;
@@ -182,7 +179,7 @@ app.get("/event/:id", (req, res) => {
 </head>
 <body>
   <div class="card">
-    <div class="logo">B</div>
+    <img class="logo" src="/images/logo_complete.png" alt="BeAssos" />
     <h1>Voir l'événement</h1>
     <p id="statusMsg"><span class="spinner"></span>Ouverture de l'application…</p>
 
@@ -215,13 +212,13 @@ app.get("*", (req, res) => {
       display: flex; align-items: center; justify-content: center;
       min-height: 100dvh; background: #0f1f13; color: #f0faf3; text-align: center; padding: 24px;
     }
-    .logo { font-size: 48px; font-weight: 800; color: #22C55E; margin-bottom: 16px; letter-spacing: -2px; }
+    .logo { display: block; width: 200px; height: auto; margin-bottom: 16px; background: #fff; border-radius: 16px; padding: 12px 16px; }
     p { color: #7aad8a; font-size: 16px; }
   </style>
 </head>
 <body>
   <div>
-    <div class="logo">BeAssos</div>
+    <img class="logo" src="/images/logo_complete.png" alt="BeAssos" />
     <p>La vie associative, simplement.</p>
   </div>
 </body>
